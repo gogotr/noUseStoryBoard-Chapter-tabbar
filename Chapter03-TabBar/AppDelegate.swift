@@ -8,7 +8,7 @@
 
 import UIKit
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if let tbC = self.window?.rootViewController as? UITabBarController{
+            if let tbitems = tbC.tabBar.items{
+                //탭바의 이미지 설정
+                tbitems[0].image = UIImage(named: "designbump")?.withRenderingMode(.alwaysOriginal)
+                tbitems[1].image = UIImage(named: "rss")?.withRenderingMode(.alwaysOriginal)
+                tbitems[2].image = UIImage(named: "facebook")?.withRenderingMode(.alwaysOriginal)
+                
+                //탭바의 이름설정
+                tbitems[0].title = "calendar"
+                tbitems[1].title = "file"
+                tbitems[2].title = "photo"
+            }
+            tbC.tabBar.tintColor = UIColor.white
+            tbC.tabBar.backgroundImage = UIImage(named: "menubar-bg-mini")
+        }
         return true
     }
 
